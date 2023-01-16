@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const spotTokenSchema = new mongoose.Schema({
+const spotifyTokenSchema = new mongoose.Schema({
   accessToken: {
     type: String,
     required: true,
@@ -19,4 +19,4 @@ const spotTokenSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("SpotToken", spotTokenSchema);
+module.exports = mongoose.model("SpotifyToken", spotifyTokenSchema);

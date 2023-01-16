@@ -20,7 +20,7 @@ In order to run this you will need to setup a .env file with your own variables.
 
 To run react (frontend)
 
-cd react npm start
+cd client npm start
 
 To run express (backend)
 
