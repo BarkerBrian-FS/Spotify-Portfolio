@@ -2,7 +2,7 @@ const { CLIENT_ID, CLIENT_SECRET } = process.env
 const querystring = require('querystring')
 const axios = require('axios')
 const randomstring = require('randomstring')
-const { SpotifyToken } = require('../models')
+const { SpotifyToken } = require('../models/SpotToken')
 const FormData = require('form-data')
 const qs = require('qs')
 
@@ -67,6 +67,26 @@ const login = async (req, res) => {
   }));
 }
 
+const search = async (req, res) => {
+  await axios({
+    method: 'GET',
+    url: 'https://api.spotify.com/v1/search',
+    params: {
+      type: 'album,artist,track',
+      q: req.query.q,
+      limit: 3
+    },
+    headers: { 
+      'Authorization': 'Bearer ' + req.token.access_token,
+      'Content-Type': 'application/json'
+    }
+  }).then(({data}) => {
+    res.json(data)
+  }).catch((error) => {
+    res.json(error)
+  })
+}
+
 module.exports = {
-	search, auth, login, status, jwt
+	search, auth, login, status, jwt, search
 }
