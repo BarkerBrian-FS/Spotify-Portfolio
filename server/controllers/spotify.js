@@ -63,7 +63,6 @@ const login = async (req, res) => {
       response_type: 'code',
       client_id: CLIENT_ID,
       redirect_uri,
-      state
   }));
 }
 
@@ -88,5 +87,5 @@ const search = async (req, res) => {
 }
 
 module.exports = {
-	search, auth, login, status, jwt, search
+	search, auth, login, status, jwt
 }
